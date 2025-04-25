@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>6 Graus de Network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        color: #333;
+        padding: 20px;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #007acc;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: 600;
+      }
+
+      input, button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 20px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #007acc;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #005f99;
+      }
+
+      #output {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>6 Graus de Network</h1>
+      <label for="from">Ator de Origem:</label>
+      <input list="actors" id="from" name="from"><br>
+
+      <label for="to">Ator de Destino:</label>
+      <input list="actors" id="to" name="to"><br>
+
+      <datalist id="actors"></datalist>
+
+      <button id="bfs-btn">Buscar Caminho Mínimo</button>
+      <button id="bfs6-btn">Buscar até 6 Graus</button>
+
+      <div id="output"></div>
+      
+    </div>
+    <script src="grafo.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
