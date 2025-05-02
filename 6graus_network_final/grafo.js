@@ -49,7 +49,7 @@ class Graph {
     const visited = new Set();
   
     const dfs = (node, path) => {
-      if (path.length > 7) return; // 6 conexões = 7 nós
+      if (path.length > 7) return;
   
       if (node === end && path.length > 1) {
         results.push([...path]);
@@ -60,7 +60,7 @@ class Graph {
         if (!path.includes(neighbor)) {
           path.push(neighbor);
           dfs(neighbor, path);
-          path.pop(); // backtrack
+          path.pop();
         }
       }
     };

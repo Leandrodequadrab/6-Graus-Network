@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const populateSelects = (actors) => {
       const datalist = document.getElementById("actors");
-      datalist.innerHTML = ""; // Garante que não duplique
+      datalist.innerHTML = ""; 
     
       actors.forEach((actor) => {
         const option = document.createElement("option");
@@ -57,12 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const displayResults = (paths) => {
     const output = document.getElementById("output");
-    output.innerHTML = paths
-      ? paths
-          .map(
-            (p) => `Caminho: ${p.join(" -> ")}<br>Comprimento: ${p.length - 1}`
-          )
-          .join("<hr>")
-      : "Relacionamento não encontrado.";
+  
+    if (!paths) {
+      output.innerHTML = "Relacionamento não encontrado.";
+      return;
+    }
+  
+    const total = paths.length;
+  
+    output.innerHTML = `
+      <strong>Total de caminhos encontrados: ${total}</strong><br><br>
+      ${paths
+        .map((p, i) => {
+          const filmeCount = p.filter((v) => !actors.includes(v)).length;
+          return `
+            <strong>Caminho ${i + 1}:</strong> ${p.join(" → ")}<br>
+            Comprimento: ${p.length - 1}<br>
+            Filmes no caminho: ${filmeCount}<br>
+          `;
+        })
+        .join("<hr>")}
+    `;
   };
 });
